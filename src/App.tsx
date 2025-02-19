@@ -31,7 +31,8 @@ export function App(){
                 humidity: data.current.humidity.toString(),
                 wind: data.current.wind_mph.toString()
             }];
-            console.log("WeatherList: ", weatherList);
+            // const forecastList:
+            // console.log("WeatherList: ", weatherList);
             setWeather(weatherList);
         }
         getWeather()
