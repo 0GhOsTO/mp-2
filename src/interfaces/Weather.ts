@@ -1,4 +1,5 @@
 export interface Weather {
+    city: string;
     country: string;
     time: string;
     name: string;

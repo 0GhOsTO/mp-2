@@ -30,7 +30,8 @@ export default function WeatherContent(props: {data:Weather[]}) {
             {
                 props.data.map((wea: Weather) =>
                     <SingleCharDiv>
-                        <h1>{wea.country}</h1>
+                        <p>{wea.country}</p>
+                        <h1>{wea.city}</h1>
                         <p>{wea.time}</p>
                         <img src={wea.icon} alt={`image of ${wea.country}`} />
                         <p>{wea.cloud}</p>
