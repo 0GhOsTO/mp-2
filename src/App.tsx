@@ -20,7 +20,7 @@ const InputStyle = styled.input`
     background-color: aliceblue;
 `;
 
-console.log(import.meta.env.VITE_API_URI);
+console.log("API KEY", import.meta.env.VITE_API_URI);
 
 const API_KEY=import.meta.env.VITE_API_URI;
 
