@@ -25,12 +25,12 @@ export function App(){
     useEffect(() => {
         async function getWeather(): Promise<void> {
             const rawData = await fetch(`http://api.weatherapi.com/v1/current.json?key=c96911959eb34ef099551938251902&q=${inputVal}`);
-            const foreData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c96911959eb34ef099551938251902&q=London&days=5`);
+            //const foreData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c96911959eb34ef099551938251902&q=London&days=5`);
 
             const data = await rawData.json();
-            const forecastData = await foreData.json();
+            //const forecastData = await foreData.json();
             // console.log("#####data:", data);
-            console.log("#####forecastData:", forecastData);
+            //onsole.log("#####forecastData:", forecastData);
             const weatherList: Weather[] = [{
                 city: data.location.name,
                 country: data.location.country,
