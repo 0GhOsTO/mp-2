@@ -4,9 +4,18 @@ import {Weather} from "./interfaces/Weather.ts";
 import {useEffect, useState} from "react";
 
 const ParentDiv=styled.div`
-    width: 80vw;
+    width: 40vw;
     margin: auto;
-    border: 5px darkgoldenrod solid;
+    border: 5px deepskyblue solid;
+    align-items: center;
+`;
+
+const InputStyle = styled.input`
+    width: 100%;
+    text-align: center;
+    font: calc(2px + 2vw) Arial, Helvetica, sans-serif;
+    border: none;
+    background-color: aliceblue;
 `;
 
 export function App(){
@@ -44,7 +53,7 @@ export function App(){
         <div>
 
             <ParentDiv>
-                <input type="string" placeholder="location" value = {inputVal}
+                <InputStyle type="string" placeholder="Type Location" value = {inputVal}
                        onChange={(e) => setInput(e.target.value)}/>
                 <WeatherContent data={weather}/>
             </ParentDiv>

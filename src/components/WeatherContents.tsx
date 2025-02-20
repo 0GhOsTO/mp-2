@@ -5,18 +5,17 @@ const AllCharsDiv=styled.div`
     display: flex;
     flex-flow: row wrap;    
     justify-content: space-evenly;
-    background-color: bisque;
+    background-color: lightskyblue;
 `;
 
 const SingleCharDiv=styled.div`
     display: flex;
     flex-direction: column;   
     justify-content: center;
-    max-width: 30%;
+    max-width: 100%;
     padding: 2%;
     margin: 1%;
-    border: 3px darkred solid;
-    font: italic small-caps bold calc(2px + 1vw) Papyrus, fantasy;
+    font: calc(2px + 2vw) Arial, Helvetica, sans-serif;
     text-align: center;
 `;
 
@@ -34,9 +33,9 @@ export default function WeatherContent(props: {data:Weather[]}) {
                         <h1>{wea.city}</h1>
                         <p>{wea.time}</p>
                         <img src={wea.icon} alt={`image of ${wea.country}`} />
-                        <p>{wea.cloud}</p>
-                        <p>{wea.humidity}</p>
-                        <p>{wea.wind}</p>
+                        <p>Cloud: {wea.cloud}</p>
+                        <p>Humidity: {wea.humidity}</p>
+                        <p>Wind: {wea.wind}</p>
                     </SingleCharDiv>
                 )
             }
