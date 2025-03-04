@@ -20,7 +20,7 @@ const InputStyle = styled.input`
     background-color: aliceblue;
 `;
 
-console.log("API KEY", import.meta.env.VITE_API_URI);
+console.log("######API KEY", import.meta.env.VITE_API_URI);
 
 const API_KEY=import.meta.env.VITE_API_URI;
 
@@ -32,9 +32,7 @@ export function App(){
         async function getWeather(): Promise<void> {
 
 
-            const rawData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${inputVal}`);
-            //const foreData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=c96911959eb34ef099551938251902&q=London&days=5`);
-
+            const rawData = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${inputVal}`);
             const data = await rawData.json();
             //const forecastData = await foreData.json();
             // console.log("#####data:", data);
