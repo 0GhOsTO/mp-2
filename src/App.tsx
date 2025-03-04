@@ -35,6 +35,7 @@ const MainWrapper = styled.div`
 const MainText = styled.p`
     text-decoration: none;
     color: #D9E5E5;
+    font-family: 'Sans Serif Collection', sans-serif;
 `;
 
 const FooterWrapper = styled.div`
@@ -42,6 +43,7 @@ const FooterWrapper = styled.div`
     color: whitesmoke;
     flex-direction: row;
     justify-content: space-evenly;
+    font-size: calc(3px + 3vw);
 `;
 
 
@@ -58,14 +60,14 @@ export function App(){
                 <Container>
                     <MainWrapper>
 
+
+
                         <MainText>
-                            <p>
                                 My name is Andrew Cho,
                                 tenacious worker and sophomore of Boston University Computer Science,
                                 seeking opportunities for growth. Navigate and overcome challenges effectively.
                                 Works effectively between people and thrives in a team environment.
                                 Open-minded to new ideas and opinions.
-                            </p>
                         </MainText>
 
                     </MainWrapper>
