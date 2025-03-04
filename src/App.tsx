@@ -1,69 +1,82 @@
-import WeatherContent from './components/WeatherContents.tsx'
 import styled from "styled-components";
-import {Weather} from "./interfaces/Weather.ts";
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 
-
-
-const ParentDiv=styled.div`
-    width: 40vw;
-    margin: auto;
-    border: 5px deepskyblue solid;
-    align-items: center;
+const PageWrapper = styled.div`
+    width: 80vw;
+    margin: 0 auto;
+    background-color: #262626;
+    min-height: 110vh;
 `;
 
-const InputStyle = styled.input`
+const HeaderWrapper = styled.header`
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 1vw;
+    background-color: #262626;
+    color: #D9E5E5;
+    align-items: left;
+`;
+
+const Container = styled.section`
+    min-height: 110vh;
     width: 100%;
-    text-align: center;
-    font: calc(2px + 2vw) Arial, Helvetica, sans-serif;
-    border: none;
-    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    /*For testing*/
+    background-color: #262626;
 `;
 
-console.log("######API KEY", import.meta.env.VITE_API_URI);
+const MainWrapper = styled.div`
+    width: 70%;
+    align-self: center;
+`;
 
-const API_KEY=import.meta.env.VITE_API_URI;
+const MainText = styled.p`
+    text-decoration: none;
+    color: #D9E5E5;
+`;
+
+const FooterWrapper = styled.div`
+    background-color: #262626;
+    color: whitesmoke;
+    flex-direction: row;
+    justify-content: space-evenly;
+`;
+
 
 export function App(){
-    const [inputVal, setInput] = useState("");
-    const [weather, setWeather] = useState<Weather[]>([]);
-
-    useEffect(() => {
-        async function getWeather(): Promise<void> {
-
-
-            const rawData = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${inputVal}`);
-            const data = await rawData.json();
-            //const forecastData = await foreData.json();
-            // console.log("#####data:", data);
-            //onsole.log("#####forecastData:", forecastData);
-            const weatherList: Weather[] = [{
-                city: data.location.name,
-                country: data.location.country,
-                time: data.location.localtime,
-                icon: data.current.condition.icon,
-                cloud: data.current.cloud.toString(),
-                humidity: data.current.humidity.toString(),
-                wind: data.current.wind_mph.toString()
-            }];
-            // const forecastList:
-            // console.log("WeatherList: ", weatherList);
-            setWeather(weatherList);
-        }
-        getWeather()
-            .then(()=> console.log("Data fetched successfully"))
-            .catch((e: Error) => console.log("There was the error: " + e));
-    },[inputVal]);
 
     return(
-        <div>
+        <>
+            <PageWrapper>
+                <HeaderWrapper>
+                    <h1>Andrew Cho</h1>
+                    <div id="Logo"><p id = "BU">Boston University Sophomore</p></div>
+                </HeaderWrapper>
 
-            <ParentDiv>
-                <InputStyle type="string" placeholder="Type Location" value = {inputVal}
-                       onChange={(e) => setInput(e.target.value)}/>
-                <WeatherContent data={weather}/>
-            </ParentDiv>
-        </div>
+                <Container>
+                    <MainWrapper>
+
+                        <MainText>
+                            <p>
+                                My name is Andrew Cho,
+                                tenacious worker and sophomore of Boston University Computer Science,
+                                seeking opportunities for growth. Navigate and overcome challenges effectively.
+                                Works effectively between people and thrives in a team environment.
+                                Open-minded to new ideas and opinions.
+                            </p>
+                        </MainText>
+
+                    </MainWrapper>
+                </Container>
+
+                <FooterWrapper>
+                    <p>All Rights Reserved by Andrew Cho <a href="../credits/credits.html"> Credits</a> &copy;</p>
+                </FooterWrapper>
+
+            </PageWrapper>
+        </>
     )
 }
 
